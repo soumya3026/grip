@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<!doctype html>
+<html> 
+    <h2>TRANSFER</h2>
+    <form action="detail" method="post">
+        {% csrf_token %}
+    
+        <p>username&nbsp;&nbsp;<input type="text" name="sender" placeholder="your name"></p><br>
+        <p>transfer to&nbsp;&nbsp;<input type="text" name="receiver" placeholder="send to"></p><br>
+        <p>amount&nbsp;&nbsp;<input type="number" name="transfer" placeholder="how much?"></p><br>
+        <p><input type="submit" placeholder="TRANSFER" class="btn btn-dark">&nbsp;
+            <a class ="btn btn-dark" href ="{% url 'bbs:index' %}">
+            BACK TO HOMEPAGE</a>
+    </form>
+
+    <div>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </div>    
+</html>
+
+
+{% endblock %}
